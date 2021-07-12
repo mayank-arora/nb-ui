@@ -1,19 +1,11 @@
 {
   "name": "@noticeboard/ui",
-  "version": "1.0.0",
-  "description": "UI components for NB",
+  "version": "1.0.2",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mayank-arora/nb-ui.git"
-  },
-  "author": "NB",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mayank-arora/nb-ui/issues"
-  },
-  "homepage": "https://github.com/mayank-arora/nb-ui#readme"
+  "repository": "git@github.com:mayank-arora/nb-ui.git",
+  "author": "Mayank Arora <mayank@noticeboard.tech>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
