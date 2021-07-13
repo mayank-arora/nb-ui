@@ -1,11 +1,24 @@
 {
   "name": "@noticeboard/ui",
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
   "version": "1.0.2",
-  "main": "index.js",
+  "main": "index.tsx",
   "repository": "git@github.com:mayank-arora/nb-ui.git",
   "author": "Mayank Arora <mayank@noticeboard.tech>",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
