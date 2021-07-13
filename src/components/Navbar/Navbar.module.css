@@ -1,5 +1,6 @@
 .ctn {
+  display: flex;
   width: 70px;
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #2c496a;
 }

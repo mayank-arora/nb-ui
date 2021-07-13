@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>add-assignee</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-assignee" fill="#92A1B3" fill-rule="nonzero">
+            <path d="M10.8180035,6.5 C9.11089226,6.5 7.72700519,5.04492544 7.72700519,3.25 C7.72700519,1.45507456 9.11089226,0 10.8180035,0 C12.5251147,0 13.9090017,1.45507456 13.9090017,3.25 C13.9090017,5.04492544 12.5251147,6.5 10.8180035,6.5 Z M2.31898442,4.87448429 L3.86399308,4.87448429 L6.1829775,4.87448429 L6.1829775,6.5 L3.86497403,6.5 L2.31800346,6.5 L0,6.5 L0,4.87448429 L2.31898442,4.87448429 Z M10.8180035,8.12448429 C8.75504905,8.12448429 4.63600692,9.21366233 4.63600692,11.3744843 L4.63600692,13 L17,13 L17,11.3744843 C17,9.21366233 12.8809579,8.12551571 10.8180035,8.12551571 L10.8180035,8.12448429 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

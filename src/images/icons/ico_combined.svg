@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="20" viewBox="224 0 40 20">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="1.569" y="15">0</tspan>
+        </text>
+        <circle cx="5" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="29.569" y="15">1</tspan>
+        </text>
+        <circle cx="33" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="57.569" y="15">2</tspan>
+        </text>
+        <circle cx="61" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="85.569" y="15">3</tspan>
+        </text>
+        <circle cx="89" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="113.569" y="15">4</tspan>
+        </text>
+        <circle cx="117" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="142.569" y="15">5</tspan>
+        </text>
+        <circle cx="146" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="169.569" y="15">6</tspan>
+        </text>
+        <circle cx="173" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="197.569" y="15">7</tspan>
+        </text>
+        <circle cx="201" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="223.569" y="15">8</tspan>
+        </text>
+        <circle cx="229" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="253.569" y="15">9</tspan>
+        </text>
+        <circle cx="257" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#43484F" font-family="OpenSans, Open Sans" font-size="12">
+            <tspan x="277.569" y="15">10</tspan>
+        </text>
+        <circle cx="285" cy="10" r="9.5" stroke="#43484F"/>
+    </g>
+</svg>

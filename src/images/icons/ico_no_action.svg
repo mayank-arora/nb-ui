@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+    <defs>
+        <path id="a" d="M96 98c13.255 0 24-10.745 24-24s-10.745-24-24-24-24 10.745-24 24 10.745 24 24 24z"/>
+        <path id="b" d="M84 84c2.935 3.778 7.338 6 12.26 6 5.137 0 9.71-2.422 12.637-6"/>
+        <path id="c" d="M54 100c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12z"/>
+        <path id="d" d="M74 115.314C74 109.065 65.046 104 54 104s-20 5.065-20 11.314c0 6.248 40 6.248 40 0z"/>
+        <path id="e" d="M138 125.456C138 111.397 119.196 100 96 100s-42 11.397-42 25.456 84 14.059 84 0z"/>
+        <circle id="f" cx="134" cy="118" r="24"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <use fill="#FFF" xlink:href="#a"/>
+            <path stroke="#000" stroke-opacity=".1" d="M96 97.5c12.979 0 23.5-10.521 23.5-23.5S108.979 50.5 96 50.5 72.5 61.021 72.5 74 83.021 97.5 96 97.5z"/>
+        </g>
+        <g>
+            <use fill="#FFF" xlink:href="#b"/>
+            <path stroke="#000" stroke-opacity=".1" stroke-width="2" d="M86.241 85c2.675 2.568 6.195 4 10.018 4 3.871 0 7.54-1.48 10.313-4h-20.33z"/>
+        </g>
+        <g>
+            <use fill="#FFF" xlink:href="#c"/>
+            <path stroke="#000" stroke-opacity=".1" d="M54 99.5c6.351 0 11.5-5.149 11.5-11.5S60.351 76.5 54 76.5 42.5 81.649 42.5 88 47.649 99.5 54 99.5z"/>
+        </g>
+        <g>
+            <use fill="#FFF" xlink:href="#d"/>
+            <path stroke="#000" stroke-opacity=".1" d="M73.5 115.314c0-5.896-8.694-10.814-19.5-10.814s-19.5 4.918-19.5 10.814c0 5.581 39 5.581 39 0z"/>
+        </g>
+        <g>
+            <use fill="#FFF" xlink:href="#e"/>
+            <path stroke="#000" stroke-opacity=".1" d="M137.5 125.456c0-13.716-18.544-24.956-41.5-24.956s-41.5 11.24-41.5 24.956c0 13.392 83 13.392 83 0z"/>
+        </g>
+        <path stroke="#000" stroke-opacity=".1" stroke-width="2" d="M57.77 94h2.678l-.773-1.633A7.186 7.186 0 0 1 57.77 94zm-7.196 0a6.804 6.804 0 0 1-1.784-1.614L48 94h2.574zm0 0h7.197a7.156 7.156 0 0 1-3.641 1 6.7 6.7 0 0 1-3.556-1z"/>
+        <g>
+            <use fill="#D5E5F6" xlink:href="#f"/>
+            <circle cx="134" cy="118" r="23.5" stroke="#000" stroke-opacity=".1"/>
+        </g>
+        <path stroke="#FFF" stroke-linecap="square" stroke-width="4" d="M134 123v4-4zm0-14v10-10z"/>
+    </g>
+</svg>

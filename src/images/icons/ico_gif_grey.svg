@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="16" height="16" fill="#91A4AE" rx="2"/>
+        <text fill="#FFF" font-family="OpenSans-Bold, Open Sans" font-size="8" font-weight="bold">
+            <tspan x="1.584" y="13">GIF</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="18" viewBox="0 0 84 18">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="84" height="18" fill="#2D7DD2" rx="2"/>
+        <text fill="#FFF" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-.4">
+            <tspan x="9.145" y="14">IMPORTANT</tspan>
+        </text>
+    </g>
+</svg>

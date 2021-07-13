@@ -3,7 +3,7 @@
   "scripts": {
     "build": "rollup -c",
     "build-storybook": "build-storybook",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -s ./src/images -p 6006"
   },
   "version": "1.0.2",
   "main": "dist/index.js",

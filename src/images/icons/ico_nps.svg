@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="20" height="20" fill="#91A4AE" rx="2"/>
+        <text fill="#FFF" font-family="OpenSans-Bold, Open Sans" font-size="8" font-weight="bold">
+            <tspan x="2.033" y="15">NPS</tspan>
+        </text>
+    </g>
+</svg>
