@@ -36,7 +36,7 @@ export default [
       resolve(),
       postcss({
         plugins: [],
-        // modules: true,
+        modules: true,
         extract: true
         // minimize: true,
       }),
