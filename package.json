@@ -3,7 +3,9 @@
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "version": "1.0.2",
   "main": "index.tsx",
@@ -11,8 +13,14 @@
   "author": "Mayank Arora <mayank@noticeboard.tech>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "babel-loader": "^8.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
@@ -20,5 +28,6 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "dependencies": {}
 }
