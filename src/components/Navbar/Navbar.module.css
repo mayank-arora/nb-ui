@@ -16,13 +16,12 @@
 }
 .logoCtn,
 .profileCtn {
-  padding: 30px 10px 50px 10px;
+  padding: 20px 10px 10px 10px;
   display: flex;
   justify-content: center;
 }
 .profileCtn {
-  padding: 50px 10px 30px 10px;
-
+  padding: 10px 10px 20px 10px;
 }
 .logo {
   border-radius: 50%;
@@ -33,10 +32,19 @@
 .item {
   display: flex;
   justify-content: center;
-  margin: 24px 0;
+  margin: 16px 0;
+  padding: 8px 0;
 }
+.active {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+  padding: 8px 0;
+  background-color: white;
+}
+
 .itemCtn {
-  max-height: calc(100vh - 240px);
+  max-height: calc(100vh - 70px);
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
@@ -69,5 +77,5 @@
 .email {
   text-align: center;
   margin-top: 1rem;
-  color: var(--grey-text-light)
+  color: var(--grey-text-light);
 }

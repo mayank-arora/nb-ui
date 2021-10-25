@@ -20,7 +20,7 @@ import {
 } from '@icons'
 import { Dropdown, Input, Modal, Upload } from 'antd'
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { cloudinaryUrl } from 'src/lib/utils'
 import { useLocation } from 'wouter'
 import profile from '../../images/profile-default.jpg'
@@ -56,7 +56,7 @@ type Prop = {
     showSchedule: boolean
   }
   updateName: (name: string) => void
-  updateProfilePic: (profilePic: string) => void
+  updateProfilePic: (data: { public_id: string }) => void
 }
 
 export const Navbar: React.FC<Prop> = ({
@@ -82,8 +82,23 @@ export const Navbar: React.FC<Prop> = ({
   updateName,
   updateProfilePic,
 }) => {
+  const uploadFile = useCallback((info: any) => {
+    console.log(info)
+    if (info.file.status === 'uploading') {
+      return
+    }
+    if (info.file.status === 'done') {
+      const tempFormData = new FormData()
+      tempFormData.append('upload_preset', 'nkoljiea')
+      tempFormData.append('file', info.fileList[0].originFileObj)
+      axios
+        .post('/api/cloudinary/upload', tempFormData)
+        .then((response) => updateProfilePic(response.data))
+    }
+
+    // console.log(info)
+  }, [])
   const [location] = useLocation()
-  console.log(location)
   let active = location.split('/')[1]
   const [profileVisible, setProfileVisible] = useState(false)
   const [userName, setUserName] = useState(user.name)
@@ -102,7 +117,10 @@ export const Navbar: React.FC<Prop> = ({
         </div>
         <div className={styles.itemCtn}>
           {config.showDashboard && (
-            <NavItem href='/dashboard' title='Dashboard'>
+            <NavItem
+              active={active === 'dashboard'}
+              href='/dashboard'
+              title='Dashboard'>
               {active === 'dashboard' ? (
                 <img src={IcoDashboardDark} />
               ) : (
@@ -111,7 +129,7 @@ export const Navbar: React.FC<Prop> = ({
             </NavItem>
           )}
 
-          <NavItem href='/boards' title='Boards'>
+          <NavItem active={active === 'boards'} href='/boards' title='Boards'>
             {active === 'boards' ? (
               <img src={IcoBoardDark} />
             ) : (
@@ -120,7 +138,7 @@ export const Navbar: React.FC<Prop> = ({
           </NavItem>
 
           {config.showTask && (
-            <NavItem href='/task' title='Task'>
+            <NavItem active={active === 'task'} href='/task' title='Task'>
               {active === 'task' ? (
                 <img src={IcoTaskDark} />
               ) : (
@@ -130,7 +148,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showAdmin && (
-            <NavItem href='/import-export' title='Export/Import'>
+            <NavItem
+              active={active === 'import-export'}
+              href='/import-export'
+              title='Export/Import'>
               {active === 'import-export' ? (
                 <img src={IcoAdminstrationDark} />
               ) : (
@@ -140,7 +161,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showTeam && (
-            <NavItem href='/teamdirectory' title='Team'>
+            <NavItem
+              active={active === 'teamdirectory'}
+              href='/teamdirectory'
+              title='Team'>
               {active === 'teamdirectory' ? (
                 <img src={IcoTeamDark} />
               ) : (
@@ -150,7 +174,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showTraining && (
-            <NavItem href='/training' title='Manage Training'>
+            <NavItem
+              active={active === 'training'}
+              href='/training'
+              title='Manage Training'>
               {active === 'training' ? (
                 <img src={IcoTrainingDark} />
               ) : (
@@ -160,7 +187,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showAcademy && (
-            <NavItem href='/academy' title='Learning Academy'>
+            <NavItem
+              active={active === 'academy'}
+              href='/academy'
+              title='Learning Academy'>
               {active === 'academy' ? (
                 <img src={IcoAcademyDark} />
               ) : (
@@ -170,7 +200,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showSchedule && (
-            <NavItem href='/schedule' title='Engage - Unicasts'>
+            <NavItem
+              active={active === 'schedule'}
+              href='/schedule'
+              title='Engage - Unicasts'>
               {active === 'schedule' ? (
                 <img src={IcoUnicastDark} />
               ) : (
@@ -180,7 +213,10 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           {config.showChecklist && (
-            <NavItem href='/compliance' title='Checklists'>
+            <NavItem
+              active={active === 'compliance'}
+              href='/compliance'
+              title='Checklists'>
               {active === 'compliance' ? (
                 <img src={IcoChecklistDark} />
               ) : (
@@ -209,7 +245,7 @@ export const Navbar: React.FC<Prop> = ({
           okText='Update Profile'>
           <div className={styles.modal}>
             <div className={styles.imageCtn}>
-              <Upload onChange={uploadFile}>
+              <Upload showUploadList={false} onChange={uploadFile}>
                 <img
                   src={
                     user.profilePic ? cloudinaryUrl(user.profilePic) : profile
@@ -223,7 +259,7 @@ export const Navbar: React.FC<Prop> = ({
             </p>
             <div className={styles.profileDetails}>
               <Input
-                value={user.name}
+                value={userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
             </div>
@@ -232,12 +268,4 @@ export const Navbar: React.FC<Prop> = ({
       </div>
     </div>
   )
-  function uploadFile(info: any) {
-    const tempFormData = new FormData()
-    tempFormData.append('upload_preset', 'nkoljiea')
-    tempFormData.append('file', info.fileList[0].originFileObj)
-    axios
-      .post('/api/cloudinary/upload', tempFormData)
-      .then((response) => updateProfilePic(response.data.url))
-  }
 }

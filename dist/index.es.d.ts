@@ -27,7 +27,9 @@ type Prop = {
         showSchedule: boolean;
     };
     updateName: (name: string) => void;
-    updateProfilePic: (profilePic: string) => void;
+    updateProfilePic: (data: {
+        public_id: string;
+    }) => void;
 };
 declare const Navbar: React.FC<Prop>;
 export { Navbar };

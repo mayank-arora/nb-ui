@@ -6,11 +6,20 @@ type Props = {
   title: string
   href: string
   hidden?: boolean
+  active: boolean
 }
-const NavItem: React.FC<Props> = ({ title, href, hidden, children }) => (
+const NavItem: React.FC<Props> = ({
+  title,
+  href,
+  hidden,
+  children,
+  active,
+}) => (
   <Tooltip placement='right' title={title}>
     <a href={href}>
-      <span className={styles.item} hidden={hidden}>{children}</span>
+      <span className={active ? styles.active : styles.item} hidden={hidden}>
+        {children}
+      </span>
     </a>
   </Tooltip>
 )
