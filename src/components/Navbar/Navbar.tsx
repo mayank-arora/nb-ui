@@ -82,9 +82,9 @@ export const Navbar: React.FC<Prop> = ({
   updateName,
   updateProfilePic,
 }) => {
-  const location = useLocation()
+  const [location] = useLocation()
   console.log(location)
-  let active = ''
+  let active = location.split('/')[1]
   const [profileVisible, setProfileVisible] = useState(false)
   const [userName, setUserName] = useState(user.name)
 
@@ -112,16 +112,26 @@ export const Navbar: React.FC<Prop> = ({
           )}
 
           <NavItem href='/boards' title='Boards'>
-            {active ? <img src={IcoBoardDark} /> : <img src={IcoBoardWhite} />}
+            {active === 'boards' ? (
+              <img src={IcoBoardDark} />
+            ) : (
+              <img src={IcoBoardWhite} />
+            )}
           </NavItem>
+
           {config.showTask && (
             <NavItem href='/task' title='Task'>
-              {active ? <img src={IcoTaskDark} /> : <img src={IcoTaskWhite} />}
+              {active === 'task' ? (
+                <img src={IcoTaskDark} />
+              ) : (
+                <img src={IcoTaskWhite} />
+              )}
             </NavItem>
           )}
+
           {config.showAdmin && (
             <NavItem href='/import-export' title='Export/Import'>
-              {active ? (
+              {active === 'import-export' ? (
                 <img src={IcoAdminstrationDark} />
               ) : (
                 <img src={IcoAdminstrationWhite} />
@@ -131,39 +141,47 @@ export const Navbar: React.FC<Prop> = ({
 
           {config.showTeam && (
             <NavItem href='/teamdirectory' title='Team'>
-              {active ? <img src={IcoTeamDark} /> : <img src={IcoTeamWhite} />}
+              {active === 'teamdirectory' ? (
+                <img src={IcoTeamDark} />
+              ) : (
+                <img src={IcoTeamWhite} />
+              )}
             </NavItem>
           )}
+
           {config.showTraining && (
             <NavItem href='/training' title='Manage Training'>
-              {active ? (
+              {active === 'training' ? (
                 <img src={IcoTrainingDark} />
               ) : (
                 <img src={IcoTrainingWhite} />
               )}
             </NavItem>
           )}
+
           {config.showAcademy && (
             <NavItem href='/academy' title='Learning Academy'>
-              {active ? (
+              {active === 'academy' ? (
                 <img src={IcoAcademyDark} />
               ) : (
                 <img src={IcoAcademyWhite} />
               )}
             </NavItem>
           )}
+
           {config.showSchedule && (
             <NavItem href='/schedule' title='Engage - Unicasts'>
-              {active ? (
+              {active === 'schedule' ? (
                 <img src={IcoUnicastDark} />
               ) : (
                 <img src={IcoUnicastWhite} />
               )}
             </NavItem>
           )}
+
           {config.showChecklist && (
             <NavItem href='/compliance' title='Checklists'>
-              {active ? (
+              {active === 'compliance' ? (
                 <img src={IcoChecklistDark} />
               ) : (
                 <img src={IcoChecklistWhite} />
