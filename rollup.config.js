@@ -1,10 +1,10 @@
 import babel from 'rollup-plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
-import typescript from '@rollup/plugin-typescript'
+import typescript from 'rollup-plugin-ts'
 import postcss from 'rollup-plugin-postcss'
 import image from '@rollup/plugin-image'
-import { terser } from 'rollup-plugin-terser'
+// import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
 export default [
@@ -39,7 +39,6 @@ export default [
       postcss({
         plugins: [],
         modules: true,
-        extract: true
         // minimize: true,
       }),
       // terser(),

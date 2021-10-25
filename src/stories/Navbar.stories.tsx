@@ -4,5 +4,5 @@ import { Navbar } from '../components/Navbar/Navbar'
 
 const stories = storiesOf('Navbar', module)
 stories.add('Navbar', () => {
-  return <Navbar />
+  return <Navbar  />
 })
