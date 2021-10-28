@@ -73,26 +73,6 @@ var img$2 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width=
 
 var img$1 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e %3cg fill='%232C496B' fill-rule='nonzero'%3e %3cpath d='M8.228 18.433c-.082-1.866-1.063-2.177-1.063-2.177.082-1.762.409-2.177.409-2.177l8.586 3.835 8.871-3.835v5.7l-.245.622c-.776 1.348-2.984 2.332-4.006 2.591-1.023.26-3.108.674-7.032.415-3.925-.26-6.174-2.747-6.174-2.747.859-.984.654-2.227.654-2.227z'/%3e %3cpath d='M16.323 8.95l-7.645 3.73 7.42 3.213 13.798-5.855s.859-.934-.204-1.348c-1.063-.415-13.287-5.596-13.287-5.596s-.286-.104-.572 0S2.75 8.674 2.75 8.674s-.709.212-.627.796c.082.585.327.585.327.585l3.162 1.313s-1.445 2.039-1.227 5.044c0 0-.954.483-.899 1.762 0 0-.027 1.175.845 1.52 0 0-.054 3.87-2.807 6.806l2.371 1.486s1.827-.622 2.017-3.628c0 0 0-3.385-.245-4.87 0 0 .654-.553.654-1.417 0 0-.027-1.313-.79-1.658 0 0-.164-3.765 1.99-4.975l8.067-4.145s.818-.311 1.117.276c0-.001.38.966-.382 1.38z'/%3e %3c/g%3e%3c/svg%3e";
 
-// import {
-//   IcoAcademyDark,
-//   IcoAcademyWhite,
-//   IcoAdminstrationDark,
-//   IcoAdminstrationWhite,
-//   IcoBoardDark,
-//   IcoBoardWhite,
-//   IcoChecklistDark,
-//   IcoChecklistWhite,
-//   IcoDashboardDark,
-//   IcoDashboardWhite,
-//   IcoTaskDark,
-//   IcoTaskWhite,
-//   IcoTeamDark,
-//   IcoTeamWhite,
-//   IcoTrainingDark,
-//   IcoTrainingWhite,
-//   IcoUnicastDark,
-//   IcoUnicastWhite,
-// } from '@icons'
 var cloudinaryUrl = function (url, width, height) {
     if (width === void 0) { width = 64; }
     if (height === void 0) { height = 64; }
@@ -100,20 +80,53 @@ var cloudinaryUrl = function (url, width, height) {
         ? undefined
         : "https://res.cloudinary.com/noticeboard/image/upload/w_" + width + ",h_" + height + ",c_scale,f_auto,q_auto:best/" + url;
 };
-// type Item = {
-//   id: string
-//   title: string
-//   link: string
-//   activeIcon: any
-//   inactiveIcon: any
-// }
-// const navList: Item[] = [
-//   {
-//     id: 'dashboard',
-//     title: 'Dashboard',
-//     activeIcon: IcoDashboardWhite,
-//   }
-// ]
+var colorPalette = [
+    {
+        fg: '#FF8A80',
+        bg: '#FFECEA',
+    },
+    {
+        fg: '#FF80AB',
+        bg: '#FFEAF1',
+    },
+    {
+        fg: '#EA80FC',
+        bg: '#FBEAFE',
+    },
+    {
+        fg: '#B388FF',
+        bg: '#F3ECFF',
+    },
+    {
+        fg: '#8C9EFF',
+        bg: '#ECEFFF',
+    },
+    {
+        fg: '#82B1FF',
+        bg: '#EBF2FF',
+    },
+    {
+        fg: '#80D8FF',
+        bg: '#E6F7FF',
+    },
+    {
+        fg: '#FFD180',
+        bg: '#FFF6E6',
+    },
+];
+function getInitials(name) {
+    var temp = name.split(' ');
+    switch (temp.length) {
+        case 0:
+            return 'NB';
+        case 1:
+            return temp[0].charAt(0).toUpperCase();
+        case 2:
+            return temp[0].charAt(0).toUpperCase() + temp[1].charAt(0).toUpperCase();
+        default:
+            return temp[0].substring(0, 2);
+    }
+}
 
 /**
  * History API docs @see https://developer.mozilla.org/en-US/docs/Web/API/History
@@ -298,6 +311,24 @@ const useLocation = () => {
 
 var img = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBWRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAITAAMAAAABAAEAAAAAAAAAAAEsAAAAAQAAASwAAAAB/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAPHAFaAAMbJUccAQAAAgAEAP/hDIFodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0ltYWdlOjpFeGlmVG9vbCAxMC4xMCc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp0aWZmPSdodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyc+CiAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICA8dGlmZjpYUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpYUmVzb2x1dGlvbj4KICA8dGlmZjpZUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpZUmVzb2x1dGlvbj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wTU09J2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8nPgogIDx4bXBNTTpEb2N1bWVudElEPmFkb2JlOmRvY2lkOnN0b2NrOmVmOTM1MDM3LTNiOWMtNDA2NC05MmNhLWYwOWQzMWQ1YjQ0MDwveG1wTU06RG9jdW1lbnRJRD4KICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjAzN2JjMGE3LWFjYWUtNDJiMS04NGM0LTllMGI0OGJmZTBlYzwveG1wTU06SW5zdGFuY2VJRD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAWEBETFBUVFQwPFxgWFBgSFBUU/8AACwgA8ADwAQERAP/EAB0AAQACAwEBAQEAAAAAAAAAAAAHCAQFBgEDAgn/xAA/EAABAwICBQgIBAQHAAAAAAAAAQIDBAUGEQcSITFBIjZRYXF0kaEIExRCYrGywSMyUoEVM5LRJDVDRFNy0v/aAAgBAQAAPwD+qYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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";
 
+function DefaultLogo(_a) {
+    var id = _a.id, name = _a.name;
+    return (React__default["default"].createElement("div", { style: {
+            backgroundColor: "" + colorPalette[Number(id) % 8].bg,
+            borderRadius: '50%',
+            height: 40,
+            width: 40,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        } },
+        React__default["default"].createElement("span", { style: {
+                color: "" + colorPalette[Number(id) % 8].fg,
+                fontWeight: 'bold',
+            } }, getInitials(name))));
+}
+
 var ProfileMenu = function (_a) {
     var setProfileVisible = _a.setProfileVisible;
     return (React__default["default"].createElement(antd.Menu, null,
@@ -392,17 +423,20 @@ var Navbar = function (_a) {
     return (React__default["default"].createElement("div", { className: styles.ctn },
         React__default["default"].createElement("div", null,
             React__default["default"].createElement("div", { className: styles.logoCtn },
-                React__default["default"].createElement("a", { href: '/team' },
-                    React__default["default"].createElement("img", { className: styles.logo, src: team.logo ? cloudinaryUrl(team.logo) : img, alt: '' }))),
+                React__default["default"].createElement("a", { href: '/team' }, team.logo ? (React__default["default"].createElement("img", { className: styles.logo, src: cloudinaryUrl(team.logo), alt: '' })) : (React__default["default"].createElement(DefaultLogo, { id: team.id, name: team.name })))),
             React__default["default"].createElement("div", { className: styles.itemCtn },
-                config.showDashboard && (React__default["default"].createElement(NavItem, { active: active === 'dashboard', href: '/dashboard', title: 'Dashboard' }, active === 'dashboard' ? (React__default["default"].createElement("img", { src: img$e })) : (React__default["default"].createElement("img", { src: img$i })))),
+                config.showDashboard &&
+                    !(active === 'compliance' || active === 'training' || active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'dashboard', href: '/dashboard', title: 'Dashboard' }, active === 'dashboard' ? (React__default["default"].createElement("img", { src: img$e })) : (React__default["default"].createElement("img", { src: img$i })))),
                 React__default["default"].createElement(NavItem, { active: active === 'boards', href: '/boards', title: 'Boards' }, active === 'boards' ? (React__default["default"].createElement("img", { src: img$f })) : (React__default["default"].createElement("img", { src: img$d }))),
-                config.showTask && (React__default["default"].createElement(NavItem, { active: active === 'task', href: '/task', title: 'Task' }, active === 'task' ? (React__default["default"].createElement("img", { src: img$5 })) : (React__default["default"].createElement("img", { src: img$6 })))),
+                config.showTask &&
+                    !(active === 'compliance' || active === 'training' || active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'task', href: '/task', title: 'Task' }, active === 'task' ? (React__default["default"].createElement("img", { src: img$5 })) : (React__default["default"].createElement("img", { src: img$6 })))),
                 config.showAdmin && (React__default["default"].createElement(NavItem, { active: active === 'import-export', href: '/import-export', title: 'Export/Import' }, active === 'import-export' ? (React__default["default"].createElement("img", { src: img$g })) : (React__default["default"].createElement("img", { src: img$h })))),
-                config.showTeam && (React__default["default"].createElement(NavItem, { active: active === 'teamdirectory', href: '/teamdirectory', title: 'Team' }, active === 'teamdirectory' ? (React__default["default"].createElement("img", { src: img$b })) : (React__default["default"].createElement("img", { src: img$c })))),
+                config.showTeam &&
+                    !(active === 'compliance' || active === 'training' || active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'teamdirectory', href: '/teamdirectory', title: 'Team' }, active === 'teamdirectory' ? (React__default["default"].createElement("img", { src: img$b })) : (React__default["default"].createElement("img", { src: img$c })))),
                 config.showTraining && (React__default["default"].createElement(NavItem, { active: active === 'training', href: '/training', title: 'Manage Training' }, active === 'training' ? (React__default["default"].createElement("img", { src: img$3 })) : (React__default["default"].createElement("img", { src: img$4 })))),
                 config.showAcademy && (React__default["default"].createElement(NavItem, { active: active === 'academy', href: '/academy', title: 'Learning Academy' }, active === 'academy' ? (React__default["default"].createElement("img", { src: img$1 })) : (React__default["default"].createElement("img", { src: img$2 })))),
-                config.showSchedule && (React__default["default"].createElement(NavItem, { active: active === 'schedule', href: '/schedule', title: 'Engage - Unicasts' }, active === 'schedule' ? (React__default["default"].createElement("img", { src: img$9 })) : (React__default["default"].createElement("img", { src: img$a })))),
+                config.showSchedule &&
+                    !(active === 'compliance' || active === 'training' || active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'schedule', href: '/schedule', title: 'Engage - Unicasts' }, active === 'schedule' ? (React__default["default"].createElement("img", { src: img$9 })) : (React__default["default"].createElement("img", { src: img$a })))),
                 config.showChecklist && (React__default["default"].createElement(NavItem, { active: active === 'compliance', href: '/compliance', title: 'Checklists' }, active === 'compliance' ? (React__default["default"].createElement("img", { src: img$7 })) : (React__default["default"].createElement("img", { src: img$8 })))))),
         React__default["default"].createElement("div", { className: styles.profileCtn },
             React__default["default"].createElement(antd.Dropdown, { overlay: React__default["default"].createElement(ProfileMenu, __assign({}, { setProfileVisible: setProfileVisible })) },

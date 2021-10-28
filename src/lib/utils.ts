@@ -1,24 +1,3 @@
-// import {
-//   IcoAcademyDark,
-//   IcoAcademyWhite,
-//   IcoAdminstrationDark,
-//   IcoAdminstrationWhite,
-//   IcoBoardDark,
-//   IcoBoardWhite,
-//   IcoChecklistDark,
-//   IcoChecklistWhite,
-//   IcoDashboardDark,
-//   IcoDashboardWhite,
-//   IcoTaskDark,
-//   IcoTaskWhite,
-//   IcoTeamDark,
-//   IcoTeamWhite,
-//   IcoTrainingDark,
-//   IcoTrainingWhite,
-//   IcoUnicastDark,
-//   IcoUnicastWhite,
-// } from '@icons'
-
 export const cloudinaryUrl = (
   url?: string,
   width: number = 64,
@@ -28,18 +7,51 @@ export const cloudinaryUrl = (
     ? undefined
     : `https://res.cloudinary.com/noticeboard/image/upload/w_${width},h_${height},c_scale,f_auto,q_auto:best/${url}`
 
-// type Item = {
-//   id: string
-//   title: string
-//   link: string
-//   activeIcon: any
-//   inactiveIcon: any
-// }
+export const colorPalette = [
+  {
+    fg: '#FF8A80',
+    bg: '#FFECEA',
+  },
+  {
+    fg: '#FF80AB',
+    bg: '#FFEAF1',
+  },
+  {
+    fg: '#EA80FC',
+    bg: '#FBEAFE',
+  },
+  {
+    fg: '#B388FF',
+    bg: '#F3ECFF',
+  },
+  {
+    fg: '#8C9EFF',
+    bg: '#ECEFFF',
+  },
+  {
+    fg: '#82B1FF',
+    bg: '#EBF2FF',
+  },
+  {
+    fg: '#80D8FF',
+    bg: '#E6F7FF',
+  },
+  {
+    fg: '#FFD180',
+    bg: '#FFF6E6',
+  },
+]
 
-// const navList: Item[] = [
-//   {
-//     id: 'dashboard',
-//     title: 'Dashboard',
-//     activeIcon: IcoDashboardWhite,
-//   }
-// ]
+export function getInitials(name: string) {
+  let temp = name.split(' ')
+  switch (temp.length) {
+    case 0:
+      return 'NB'
+    case 1:
+      return temp[0].charAt(0).toUpperCase()
+    case 2:
+      return temp[0].charAt(0).toUpperCase() + temp[1].charAt(0).toUpperCase()
+    default:
+      return temp[0].substring(0, 2)
+  }
+}

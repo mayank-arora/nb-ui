@@ -24,6 +24,7 @@ import React, { useCallback, useState } from 'react'
 import { cloudinaryUrl } from 'src/lib/utils'
 import { useLocation } from 'wouter'
 import profile from '../../images/profile-default.jpg'
+import { DefaultLogo } from '../DefaultLogo'
 import { ProfileMenu } from '../ProfileMenu'
 import styles from './Navbar.module.css'
 import NavItem from './NavItem'
@@ -108,26 +109,35 @@ export const Navbar: React.FC<Prop> = ({
       <div>
         <div className={styles.logoCtn}>
           <a href='/team'>
-            <img
-              className={styles.logo}
-              src={team.logo ? cloudinaryUrl(team.logo) : profile}
-              alt=''
-            />
+            {team.logo ? (
+              <img
+                className={styles.logo}
+                src={cloudinaryUrl(team.logo)}
+                alt=''
+              />
+            ) : (
+              <DefaultLogo id={team.id} name={team.name} />
+            )}
           </a>
         </div>
         <div className={styles.itemCtn}>
-          {config.showDashboard && (
-            <NavItem
-              active={active === 'dashboard'}
-              href='/dashboard'
-              title='Dashboard'>
-              {active === 'dashboard' ? (
-                <img src={IcoDashboardDark} />
-              ) : (
-                <img src={IcoDashboardWhite} />
-              )}
-            </NavItem>
-          )}
+          {config.showDashboard &&
+            !(
+              active === 'compliance' ||
+              active === 'training' ||
+              active === 'course'
+            ) && (
+              <NavItem
+                active={active === 'dashboard'}
+                href='/dashboard'
+                title='Dashboard'>
+                {active === 'dashboard' ? (
+                  <img src={IcoDashboardDark} />
+                ) : (
+                  <img src={IcoDashboardWhite} />
+                )}
+              </NavItem>
+            )}
 
           <NavItem active={active === 'boards'} href='/boards' title='Boards'>
             {active === 'boards' ? (
@@ -137,15 +147,20 @@ export const Navbar: React.FC<Prop> = ({
             )}
           </NavItem>
 
-          {config.showTask && (
-            <NavItem active={active === 'task'} href='/task' title='Task'>
-              {active === 'task' ? (
-                <img src={IcoTaskDark} />
-              ) : (
-                <img src={IcoTaskWhite} />
-              )}
-            </NavItem>
-          )}
+          {config.showTask &&
+            !(
+              active === 'compliance' ||
+              active === 'training' ||
+              active === 'course'
+            ) && (
+              <NavItem active={active === 'task'} href='/task' title='Task'>
+                {active === 'task' ? (
+                  <img src={IcoTaskDark} />
+                ) : (
+                  <img src={IcoTaskWhite} />
+                )}
+              </NavItem>
+            )}
 
           {config.showAdmin && (
             <NavItem
@@ -160,22 +175,27 @@ export const Navbar: React.FC<Prop> = ({
             </NavItem>
           )}
 
-          {config.showTeam && (
-            <NavItem
-              active={active === 'teamdirectory'}
-              href='/teamdirectory'
-              title='Team'>
-              {active === 'teamdirectory' ? (
-                <img src={IcoTeamDark} />
-              ) : (
-                <img src={IcoTeamWhite} />
-              )}
-            </NavItem>
-          )}
+          {config.showTeam &&
+            !(
+              active === 'compliance' ||
+              active === 'training' ||
+              active === 'course'
+            ) && (
+              <NavItem
+                active={active === 'teamdirectory'}
+                href={'/teamdirectory'}
+                title='Team'>
+                {active === 'teamdirectory' ? (
+                  <img src={IcoTeamDark} />
+                ) : (
+                  <img src={IcoTeamWhite} />
+                )}
+              </NavItem>
+            )}
 
           {config.showTraining && (
             <NavItem
-              active={active === 'training'}
+              active={active === 'training' || active === 'course'}
               href='/training'
               title='Manage Training'>
               {active === 'training' ? (
@@ -199,18 +219,23 @@ export const Navbar: React.FC<Prop> = ({
             </NavItem>
           )}
 
-          {config.showSchedule && (
-            <NavItem
-              active={active === 'schedule'}
-              href='/schedule'
-              title='Engage - Unicasts'>
-              {active === 'schedule' ? (
-                <img src={IcoUnicastDark} />
-              ) : (
-                <img src={IcoUnicastWhite} />
-              )}
-            </NavItem>
-          )}
+          {config.showSchedule &&
+            !(
+              active === 'compliance' ||
+              active === 'training' ||
+              active === 'course'
+            ) && (
+              <NavItem
+                active={active === 'schedule'}
+                href='/schedule'
+                title='Engage - Unicasts'>
+                {active === 'schedule' ? (
+                  <img src={IcoUnicastDark} />
+                ) : (
+                  <img src={IcoUnicastWhite} />
+                )}
+              </NavItem>
+            )}
 
           {config.showChecklist && (
             <NavItem

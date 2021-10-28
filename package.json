@@ -5,7 +5,7 @@
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -s ./src/images -p 6006"
   },
-  "version": "1.2.0",
+  "version": "1.2.6",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -29,6 +29,7 @@
     "@types/react-dom": "^17.0.9",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
+    "eslint": "^7.32.0",
     "postcss": "^8.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -44,13 +45,12 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "peerDependencies": {
-    "antd": "^4.16.13",
-    "axios": "^0.21.4",
+    "antd": "^4.8.4",
+    "axios": "^0.19.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "wouter": "^2.8.0-alpha.1",
-    "eslint": "^7.32.0"
+    "wouter": "^2.8.0-alpha.1"
   }
 }
