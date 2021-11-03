@@ -1,6 +1,6 @@
-/// <reference types="react" />
 import React from "react";
-type Prop = {
+import { FC } from "react";
+type NavbarProp = {
     /**
      * The details of the community are required since
      * the selected community can be changed in the app
@@ -26,10 +26,12 @@ type Prop = {
         showChecklist: boolean;
         showSchedule: boolean;
     };
+    router?: boolean;
+    list?: () => FC;
     updateName: (name: string) => void;
     updateProfilePic: (data: {
         public_id: string;
     }) => void;
 };
-declare const Navbar: React.FC<Prop>;
-export { Navbar };
+declare const Navbar: React.FC<NavbarProp>;
+export { NavbarProp, Navbar };

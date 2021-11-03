@@ -5,7 +5,7 @@
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -s ./src/images -p 6006"
   },
-  "version": "1.2.6",
+  "version": "1.2.11",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -25,14 +25,14 @@
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
     "@storybook/react": "^6.3.4",
-    "@types/react": "^17.0.14",
-    "@types/react-dom": "^17.0.9",
+    "@types/react": "^16.12.0",
+    "@types/react-dom": "^16.12.0",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
     "postcss": "^8.3.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "rollup": "^2.53.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -45,10 +45,10 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "peerDependencies": {
-    "antd": "^4.8.4",
+    "antd": "^3.23.3",
     "axios": "^0.19.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "wouter": "^2.8.0-alpha.1"

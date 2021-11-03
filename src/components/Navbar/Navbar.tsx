@@ -1,35 +1,15 @@
-import {
-  IcoAcademyDark,
-  IcoAcademyWhite,
-  IcoAdminstrationDark,
-  IcoAdminstrationWhite,
-  IcoBoardDark,
-  IcoBoardWhite,
-  IcoChecklistDark,
-  IcoChecklistWhite,
-  IcoDashboardDark,
-  IcoDashboardWhite,
-  IcoTaskDark,
-  IcoTaskWhite,
-  IcoTeamDark,
-  IcoTeamWhite,
-  IcoTrainingDark,
-  IcoTrainingWhite,
-  IcoUnicastDark,
-  IcoUnicastWhite,
-} from '@icons'
 import { Dropdown, Input, Modal, Upload } from 'antd'
 import axios from 'axios'
-import React, { useCallback, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import { cloudinaryUrl } from 'src/lib/utils'
 import { useLocation } from 'wouter'
 import profile from '../../images/profile-default.jpg'
 import { DefaultLogo } from '../DefaultLogo'
 import { ProfileMenu } from '../ProfileMenu'
+import { ItemContainer } from './ItemContainer'
 import styles from './Navbar.module.css'
-import NavItem from './NavItem'
 
-type Prop = {
+export type NavbarProp = {
   /**
    * The details of the community are required since
    * the selected community can be changed in the app
@@ -56,11 +36,13 @@ type Prop = {
     showChecklist: boolean
     showSchedule: boolean
   }
+  router?: boolean
+  list?: () => FC
   updateName: (name: string) => void
   updateProfilePic: (data: { public_id: string }) => void
 }
 
-export const Navbar: React.FC<Prop> = ({
+export const Navbar: React.FC<NavbarProp> = ({
   team = {
     id: '',
     name: '',
@@ -80,6 +62,8 @@ export const Navbar: React.FC<Prop> = ({
     showChecklist: true,
     showSchedule: true,
   },
+  router = false,
+  list,
   updateName,
   updateProfilePic,
 }) => {
@@ -120,136 +104,11 @@ export const Navbar: React.FC<Prop> = ({
             )}
           </a>
         </div>
-        <div className={styles.itemCtn}>
-          {config.showDashboard &&
-            !(
-              active === 'compliance' ||
-              active === 'training' ||
-              active === 'course'
-            ) && (
-              <NavItem
-                active={active === 'dashboard'}
-                href='/dashboard'
-                title='Dashboard'>
-                {active === 'dashboard' ? (
-                  <img src={IcoDashboardDark} />
-                ) : (
-                  <img src={IcoDashboardWhite} />
-                )}
-              </NavItem>
-            )}
-
-          <NavItem active={active === 'boards'} href='/boards' title='Boards'>
-            {active === 'boards' ? (
-              <img src={IcoBoardDark} />
-            ) : (
-              <img src={IcoBoardWhite} />
-            )}
-          </NavItem>
-
-          {config.showTask &&
-            !(
-              active === 'compliance' ||
-              active === 'training' ||
-              active === 'course'
-            ) && (
-              <NavItem active={active === 'task'} href='/task' title='Task'>
-                {active === 'task' ? (
-                  <img src={IcoTaskDark} />
-                ) : (
-                  <img src={IcoTaskWhite} />
-                )}
-              </NavItem>
-            )}
-
-          {config.showAdmin && (
-            <NavItem
-              active={active === 'import-export'}
-              href='/import-export'
-              title='Export/Import'>
-              {active === 'import-export' ? (
-                <img src={IcoAdminstrationDark} />
-              ) : (
-                <img src={IcoAdminstrationWhite} />
-              )}
-            </NavItem>
-          )}
-
-          {config.showTeam &&
-            !(
-              active === 'compliance' ||
-              active === 'training' ||
-              active === 'course'
-            ) && (
-              <NavItem
-                active={active === 'teamdirectory'}
-                href={'/teamdirectory'}
-                title='Team'>
-                {active === 'teamdirectory' ? (
-                  <img src={IcoTeamDark} />
-                ) : (
-                  <img src={IcoTeamWhite} />
-                )}
-              </NavItem>
-            )}
-
-          {config.showTraining && (
-            <NavItem
-              active={active === 'training' || active === 'course'}
-              href='/training'
-              title='Manage Training'>
-              {active === 'training' ? (
-                <img src={IcoTrainingDark} />
-              ) : (
-                <img src={IcoTrainingWhite} />
-              )}
-            </NavItem>
-          )}
-
-          {config.showAcademy && (
-            <NavItem
-              active={active === 'academy'}
-              href='/academy'
-              title='Learning Academy'>
-              {active === 'academy' ? (
-                <img src={IcoAcademyDark} />
-              ) : (
-                <img src={IcoAcademyWhite} />
-              )}
-            </NavItem>
-          )}
-
-          {config.showSchedule &&
-            !(
-              active === 'compliance' ||
-              active === 'training' ||
-              active === 'course'
-            ) && (
-              <NavItem
-                active={active === 'schedule'}
-                href='/schedule'
-                title='Engage - Unicasts'>
-                {active === 'schedule' ? (
-                  <img src={IcoUnicastDark} />
-                ) : (
-                  <img src={IcoUnicastWhite} />
-                )}
-              </NavItem>
-            )}
-
-          {config.showChecklist && (
-            <NavItem
-              active={active === 'compliance'}
-              href='/compliance'
-              title='Checklists'>
-              {active === 'compliance' ? (
-                <img src={IcoChecklistDark} />
-              ) : (
-                <img src={IcoChecklistWhite} />
-              )}
-            </NavItem>
-          )}
-        </div>
+        {router && list ? (
+          list()
+        ) : (
+          <ItemContainer config={config} active={active} />
+        )}
       </div>
       <div className={styles.profileCtn}>
         <Dropdown overlay={<ProfileMenu {...{ setProfileVisible }} />}>
