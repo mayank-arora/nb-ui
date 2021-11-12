@@ -16,7 +16,7 @@
 }
 .logoCtn,
 .profileCtn {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 30px 10px;
   display: flex;
   justify-content: center;
 }
@@ -25,8 +25,8 @@
 }
 .logo {
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   cursor: pointer;
 }
 .item {

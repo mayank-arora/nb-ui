@@ -9,6 +9,7 @@ type NavbarProp = {
         id: string;
         name: string;
         logo?: string;
+        plan: "paid" | "trial";
     };
     user: {
         id: string;

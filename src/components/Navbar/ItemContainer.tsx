@@ -33,17 +33,27 @@ export interface ItemContainerProps {
     showSchedule: boolean
   }
   active: string
+  team: {
+    id: string
+    name: string
+    logo?: string
+    plan: 'paid' | 'trial'
+  }
 }
 
-export const ItemContainer: React.FC<ItemContainerProps> = ({config, active}) => {
+export const ItemContainer: React.FC<ItemContainerProps> = ({
+  config,
+  active,
+  team,
+}) => {
   return (
     <div className={styles.itemCtn}>
       {config.showDashboard &&
-        !(
-          active === 'compliance' ||
-          active === 'training' ||
-          active === 'course'
-        ) && (
+        (active === 'boards' ||
+          active === 'dashboard' ||
+          active === 'task' ||
+          active === 'teamdirectory' ||
+          active === 'schedule') && (
           <NavItem
             active={active === 'dashboard'}
             href='/dashboard'
@@ -65,11 +75,11 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({config, active}) =>
       </NavItem>
 
       {config.showTask &&
-        !(
-          active === 'compliance' ||
-          active === 'training' ||
-          active === 'course'
-        ) && (
+        (active === 'boards' ||
+          active === 'dashboard' ||
+          active === 'task' ||
+          active === 'teamdirectory' ||
+          active === 'schedule') && (
           <NavItem active={active === 'task'} href='/task' title='Task'>
             {active === 'task' ? (
               <img src={IcoTaskDark} />
@@ -93,11 +103,11 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({config, active}) =>
       )}
 
       {config.showTeam &&
-        !(
-          active === 'compliance' ||
-          active === 'training' ||
-          active === 'course'
-        ) && (
+        (active === 'boards' ||
+          active === 'dashboard' ||
+          active === 'task' ||
+          active === 'teamdirectory' ||
+          active === 'schedule') && (
           <NavItem
             active={active === 'teamdirectory'}
             href={'/teamdirectory'}
@@ -137,11 +147,11 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({config, active}) =>
       )}
 
       {config.showSchedule &&
-        !(
-          active === 'compliance' ||
-          active === 'training' ||
-          active === 'course'
-        ) && (
+        (active === 'boards' ||
+          active === 'dashboard' ||
+          active === 'task' ||
+          active === 'teamdirectory' ||
+          active === 'schedule') && (
           <NavItem
             active={active === 'schedule'}
             href='/schedule'
@@ -157,7 +167,11 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({config, active}) =>
       {config.showChecklist && (
         <NavItem
           active={active === 'compliance'}
-          href='/compliance'
+          href={
+            team.id === '1' || team.plan === 'trial'
+              ? '/compliance'
+              : '/checklist'
+          }
           title='Checklists'>
           {active === 'compliance' ? (
             <img src={IcoChecklistDark} />

@@ -276,12 +276,12 @@ const useLocation = () => {
 var img$i = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBWRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAITAAMAAAABAAEAAAAAAAAAAAEsAAAAAQAAASwAAAAB/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAPHAFaAAMbJUccAQAAAgAEAP/hDIFodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0ltYWdlOjpFeGlmVG9vbCAxMC4xMCc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp0aWZmPSdodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyc+CiAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICA8dGlmZjpYUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpYUmVzb2x1dGlvbj4KICA8dGlmZjpZUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpZUmVzb2x1dGlvbj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wTU09J2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8nPgogIDx4bXBNTTpEb2N1bWVudElEPmFkb2JlOmRvY2lkOnN0b2NrOmVmOTM1MDM3LTNiOWMtNDA2NC05MmNhLWYwOWQzMWQ1YjQ0MDwveG1wTU06RG9jdW1lbnRJRD4KICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjAzN2JjMGE3LWFjYWUtNDJiMS04NGM0LTllMGI0OGJmZTBlYzwveG1wTU06SW5zdGFuY2VJRD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAWEBETFBUVFQwPFxgWFBgSFBUU/8AACwgA8ADwAQERAP/EAB0AAQACAwEBAQEAAAAAAAAAAAAHCAQFBgEDAgn/xAA/EAABAwICBQgIBAQHAAAAAAAAAQIDBAUGEQcSITFBIjZRYXF0kaEIExRCYrGywSMyUoEVM5LRJDVDRFNy0v/aAAgBAQAAPwD+qYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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";
 
 function DefaultLogo(_a) {
-    var id = _a.id, name = _a.name;
+    var id = _a.id, name = _a.name, alternate = _a.alternate;
     return (React__default["default"].createElement("div", { style: {
             backgroundColor: "" + colorPalette[Number(id) % 8].bg,
             borderRadius: '50%',
-            height: 40,
-            width: 40,
+            height: alternate ? 100 : 35,
+            width: alternate ? 100 : 35,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
@@ -372,7 +372,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".Navbar-module_ctn__28RyD {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 60px;\n  height: 100vh;\n  background-color: #1b2e43;\n}\n.Navbar-module_iconCtn__2R9HJ {\n  text-align: center;\n  padding: 10px;\n}\n.Navbar-module_icon__1heqF {\n  height: 25px;\n  width: auto;\n}\n.Navbar-module_logoCtn__2TI6o,\n.Navbar-module_profileCtn__3RCxO {\n  padding: 20px 10px 10px 10px;\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_profileCtn__3RCxO {\n  padding: 10px 10px 20px 10px;\n}\n.Navbar-module_logo__3rvZB {\n  border-radius: 50%;\n  height: 40px;\n  width: 40px;\n  cursor: pointer;\n}\n.Navbar-module_item__92WQ5 {\n  display: flex;\n  justify-content: center;\n  margin: 16px 0;\n  padding: 8px 0;\n}\n.Navbar-module_active__HzQfF {\n  display: flex;\n  justify-content: center;\n  margin: 8px 0;\n  padding: 8px 0;\n  background-color: white;\n}\n\n.Navbar-module_itemCtn__1dQI_ {\n  max-height: calc(100vh - 70px);\n  overflow-y: auto;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* IE 10+ */\n}\n.Navbar-module_itemCtn__1dQI_::-webkit-scrollbar {\n  /* Chrome/Safari/Webkit */\n  width: 0px;\n  background: transparent;\n}\n.Navbar-module_modal__Zs7sh {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n}\n.Navbar-module_imageCtn__zEqBR {\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_modal__Zs7sh img {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n}\n\n.Navbar-module_profileDetails__1sFME {\n  width: 60%;\n  margin: auto;\n}\n\n.Navbar-module_email__27xwg {\n  text-align: center;\n  margin-top: 1rem;\n  color: var(--grey-text-light);\n}\n";
+var css_248z = ".Navbar-module_ctn__28RyD {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 60px;\n  height: 100vh;\n  background-color: #1b2e43;\n}\n.Navbar-module_iconCtn__2R9HJ {\n  text-align: center;\n  padding: 10px;\n}\n.Navbar-module_icon__1heqF {\n  height: 25px;\n  width: auto;\n}\n.Navbar-module_logoCtn__2TI6o,\n.Navbar-module_profileCtn__3RCxO {\n  padding: 20px 10px 30px 10px;\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_profileCtn__3RCxO {\n  padding: 10px 10px 20px 10px;\n}\n.Navbar-module_logo__3rvZB {\n  border-radius: 50%;\n  height: 35px;\n  width: 35px;\n  cursor: pointer;\n}\n.Navbar-module_item__92WQ5 {\n  display: flex;\n  justify-content: center;\n  margin: 16px 0;\n  padding: 8px 0;\n}\n.Navbar-module_active__HzQfF {\n  display: flex;\n  justify-content: center;\n  margin: 8px 0;\n  padding: 8px 0;\n  background-color: white;\n}\n\n.Navbar-module_itemCtn__1dQI_ {\n  max-height: calc(100vh - 70px);\n  overflow-y: auto;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* IE 10+ */\n}\n.Navbar-module_itemCtn__1dQI_::-webkit-scrollbar {\n  /* Chrome/Safari/Webkit */\n  width: 0px;\n  background: transparent;\n}\n.Navbar-module_modal__Zs7sh {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n}\n.Navbar-module_imageCtn__zEqBR {\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_modal__Zs7sh img {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n}\n\n.Navbar-module_profileDetails__1sFME {\n  width: 60%;\n  margin: auto;\n}\n\n.Navbar-module_email__27xwg {\n  text-align: center;\n  margin-top: 1rem;\n  color: var(--grey-text-light);\n}\n";
 var styles = {"ctn":"Navbar-module_ctn__28RyD","iconCtn":"Navbar-module_iconCtn__2R9HJ","icon":"Navbar-module_icon__1heqF","logoCtn":"Navbar-module_logoCtn__2TI6o","profileCtn":"Navbar-module_profileCtn__3RCxO","logo":"Navbar-module_logo__3rvZB","item":"Navbar-module_item__92WQ5","active":"Navbar-module_active__HzQfF","itemCtn":"Navbar-module_itemCtn__1dQI_","modal":"Navbar-module_modal__Zs7sh","imageCtn":"Navbar-module_imageCtn__zEqBR","profileDetails":"Navbar-module_profileDetails__1sFME","email":"Navbar-module_email__27xwg"};
 styleInject(css_248z);
 
@@ -384,35 +384,46 @@ var NavItem = function (_a) {
 };
 
 var ItemContainer = function (_a) {
-    var config = _a.config, active = _a.active;
+    var config = _a.config, active = _a.active, team = _a.team;
     return (React__default["default"].createElement("div", { className: styles.itemCtn },
         config.showDashboard &&
-            !(active === 'compliance' ||
-                active === 'training' ||
-                active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'dashboard', href: '/dashboard', title: 'Dashboard' }, active === 'dashboard' ? (React__default["default"].createElement("img", { src: img$d })) : (React__default["default"].createElement("img", { src: img$h })))),
+            (active === 'boards' ||
+                active === 'dashboard' ||
+                active === 'task' ||
+                active === 'teamdirectory' ||
+                active === 'schedule') && (React__default["default"].createElement(NavItem, { active: active === 'dashboard', href: '/dashboard', title: 'Dashboard' }, active === 'dashboard' ? (React__default["default"].createElement("img", { src: img$d })) : (React__default["default"].createElement("img", { src: img$h })))),
         React__default["default"].createElement(NavItem, { active: active === 'boards', href: '/boards', title: 'Boards' }, active === 'boards' ? (React__default["default"].createElement("img", { src: img$e })) : (React__default["default"].createElement("img", { src: img$c }))),
         config.showTask &&
-            !(active === 'compliance' ||
-                active === 'training' ||
-                active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'task', href: '/task', title: 'Task' }, active === 'task' ? (React__default["default"].createElement("img", { src: img$4 })) : (React__default["default"].createElement("img", { src: img$5 })))),
+            (active === 'boards' ||
+                active === 'dashboard' ||
+                active === 'task' ||
+                active === 'teamdirectory' ||
+                active === 'schedule') && (React__default["default"].createElement(NavItem, { active: active === 'task', href: '/task', title: 'Task' }, active === 'task' ? (React__default["default"].createElement("img", { src: img$4 })) : (React__default["default"].createElement("img", { src: img$5 })))),
         config.showAdmin && (React__default["default"].createElement(NavItem, { active: active === 'import-export', href: '/import-export', title: 'Export/Import' }, active === 'import-export' ? (React__default["default"].createElement("img", { src: img$f })) : (React__default["default"].createElement("img", { src: img$g })))),
         config.showTeam &&
-            !(active === 'compliance' ||
-                active === 'training' ||
-                active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'teamdirectory', href: '/teamdirectory', title: 'Team' }, active === 'teamdirectory' ? (React__default["default"].createElement("img", { src: img$a })) : (React__default["default"].createElement("img", { src: img$b })))),
+            (active === 'boards' ||
+                active === 'dashboard' ||
+                active === 'task' ||
+                active === 'teamdirectory' ||
+                active === 'schedule') && (React__default["default"].createElement(NavItem, { active: active === 'teamdirectory', href: '/teamdirectory', title: 'Team' }, active === 'teamdirectory' ? (React__default["default"].createElement("img", { src: img$a })) : (React__default["default"].createElement("img", { src: img$b })))),
         config.showTraining && (React__default["default"].createElement(NavItem, { active: active === 'training' || active === 'course', href: '/training', title: 'Manage Training' }, active === 'training' ? (React__default["default"].createElement("img", { src: img$2 })) : (React__default["default"].createElement("img", { src: img$3 })))),
         config.showAcademy && (React__default["default"].createElement(NavItem, { active: active === 'academy', href: '/academy', title: 'Learning Academy' }, active === 'academy' ? (React__default["default"].createElement("img", { src: img })) : (React__default["default"].createElement("img", { src: img$1 })))),
         config.showSchedule &&
-            !(active === 'compliance' ||
-                active === 'training' ||
-                active === 'course') && (React__default["default"].createElement(NavItem, { active: active === 'schedule', href: '/schedule', title: 'Engage - Unicasts' }, active === 'schedule' ? (React__default["default"].createElement("img", { src: img$8 })) : (React__default["default"].createElement("img", { src: img$9 })))),
-        config.showChecklist && (React__default["default"].createElement(NavItem, { active: active === 'compliance', href: '/compliance', title: 'Checklists' }, active === 'compliance' ? (React__default["default"].createElement("img", { src: img$6 })) : (React__default["default"].createElement("img", { src: img$7 }))))));
+            (active === 'boards' ||
+                active === 'dashboard' ||
+                active === 'task' ||
+                active === 'teamdirectory' ||
+                active === 'schedule') && (React__default["default"].createElement(NavItem, { active: active === 'schedule', href: '/schedule', title: 'Engage - Unicasts' }, active === 'schedule' ? (React__default["default"].createElement("img", { src: img$8 })) : (React__default["default"].createElement("img", { src: img$9 })))),
+        config.showChecklist && (React__default["default"].createElement(NavItem, { active: active === 'compliance', href: team.id === '1' || team.plan === 'trial'
+                ? '/compliance'
+                : '/checklist', title: 'Checklists' }, active === 'compliance' ? (React__default["default"].createElement("img", { src: img$6 })) : (React__default["default"].createElement("img", { src: img$7 }))))));
 };
 
 var Navbar = function (_a) {
     var _b = _a.team, team = _b === void 0 ? {
         id: '',
         name: '',
+        plan: 'trial',
     } : _b, _c = _a.user, user = _c === void 0 ? {
         id: '',
         name: '',
@@ -428,7 +439,6 @@ var Navbar = function (_a) {
         showSchedule: true,
     } : _d, _e = _a.router, router = _e === void 0 ? false : _e, list = _a.list, updateName = _a.updateName, updateProfilePic = _a.updateProfilePic;
     var uploadFile = React.useCallback(function (info) {
-        console.log(info);
         if (info.file.status === 'uploading') {
             return;
         }
@@ -440,28 +450,27 @@ var Navbar = function (_a) {
                 .post('/api/cloudinary/upload', tempFormData)
                 .then(function (response) { return updateProfilePic(response.data); });
         }
-        // console.log(info)
     }, []);
     var location = useLocation()[0];
     var active = location.split('/')[1];
     var _f = React.useState(false), profileVisible = _f[0], setProfileVisible = _f[1];
     var _g = React.useState(user.name), userName = _g[0], setUserName = _g[1];
+    // const [profileHover, setProfileHover] = useState(false)
     return (React__default["default"].createElement("div", { className: styles.ctn },
         React__default["default"].createElement("div", null,
             React__default["default"].createElement("div", { className: styles.logoCtn },
                 React__default["default"].createElement("a", { href: '/team' }, team.logo ? (React__default["default"].createElement("img", { className: styles.logo, src: cloudinaryUrl(team.logo), alt: '' })) : (React__default["default"].createElement(DefaultLogo, { id: team.id, name: team.name })))),
-            router && list ? (list()) : (React__default["default"].createElement(ItemContainer, { config: config, active: active }))),
+            router && list ? (list()) : (React__default["default"].createElement(ItemContainer, { config: config, active: active, team: team }))),
         React__default["default"].createElement("div", { className: styles.profileCtn },
-            React__default["default"].createElement(antd.Dropdown, { overlay: React__default["default"].createElement(ProfileMenu, __assign({}, { setProfileVisible: setProfileVisible })) },
+            React__default["default"].createElement(antd.Dropdown, { destroyPopupOnHide: true, overlay: React__default["default"].createElement(ProfileMenu, __assign({}, { setProfileVisible: setProfileVisible })) },
                 React__default["default"].createElement("img", { className: styles.logo, src: user.profilePic ? cloudinaryUrl(user.profilePic) : img$i, alt: '' })),
-            React__default["default"].createElement(antd.Modal, { title: 'Edit Profile', visible: profileVisible, onOk: function () {
+            React__default["default"].createElement(antd.Modal, { title: 'Update Profile', visible: profileVisible, onOk: function () {
                     setProfileVisible(false);
                     updateName(userName);
                 }, onCancel: function () { return setProfileVisible(false); }, okText: 'Update Profile' },
                 React__default["default"].createElement("div", { className: styles.modal },
                     React__default["default"].createElement("div", { className: styles.imageCtn },
-                        React__default["default"].createElement(antd.Upload, { showUploadList: false, onChange: uploadFile },
-                            React__default["default"].createElement("img", { src: user.profilePic ? cloudinaryUrl(user.profilePic) : img$i, alt: '' }))),
+                        React__default["default"].createElement(antd.Upload, { showUploadList: false, onChange: uploadFile }, user.profilePic ? (React__default["default"].createElement("img", { src: user.profilePic ? cloudinaryUrl(user.profilePic) : img$i, alt: '' })) : (React__default["default"].createElement(DefaultLogo, { alternate: true, id: team.id, name: team.name })))),
                     React__default["default"].createElement("p", { className: styles.email },
                         React__default["default"].createElement("b", null, "Contact:"),
                         " ",

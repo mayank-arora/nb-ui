@@ -18,6 +18,7 @@ export type NavbarProp = {
     id: string
     name: string
     logo?: string
+    plan: 'paid' | 'trial'
   }
   user: {
     id: string
@@ -46,6 +47,7 @@ export const Navbar: React.FC<NavbarProp> = ({
   team = {
     id: '',
     name: '',
+    plan: 'trial',
   },
   user = {
     id: '',
@@ -68,7 +70,6 @@ export const Navbar: React.FC<NavbarProp> = ({
   updateProfilePic,
 }) => {
   const uploadFile = useCallback((info: any) => {
-    console.log(info)
     if (info.file.status === 'uploading') {
       return
     }
@@ -81,12 +82,12 @@ export const Navbar: React.FC<NavbarProp> = ({
         .then((response) => updateProfilePic(response.data))
     }
 
-    // console.log(info)
   }, [])
   const [location] = useLocation()
   let active = location.split('/')[1]
   const [profileVisible, setProfileVisible] = useState(false)
   const [userName, setUserName] = useState(user.name)
+  // const [profileHover, setProfileHover] = useState(false)
 
   return (
     <div className={styles.ctn}>
@@ -107,11 +108,13 @@ export const Navbar: React.FC<NavbarProp> = ({
         {router && list ? (
           list()
         ) : (
-          <ItemContainer config={config} active={active} />
+          <ItemContainer config={config} active={active} team={team} />
         )}
       </div>
       <div className={styles.profileCtn}>
-        <Dropdown overlay={<ProfileMenu {...{ setProfileVisible }} />}>
+        <Dropdown
+          destroyPopupOnHide
+          overlay={<ProfileMenu {...{ setProfileVisible }} />}>
           <img
             className={styles.logo}
             src={user.profilePic ? cloudinaryUrl(user.profilePic) : profile}
@@ -119,7 +122,7 @@ export const Navbar: React.FC<NavbarProp> = ({
           />
         </Dropdown>
         <Modal
-          title='Edit Profile'
+          title='Update Profile'
           visible={profileVisible}
           onOk={() => {
             setProfileVisible(false)
@@ -128,14 +131,22 @@ export const Navbar: React.FC<NavbarProp> = ({
           onCancel={() => setProfileVisible(false)}
           okText='Update Profile'>
           <div className={styles.modal}>
-            <div className={styles.imageCtn}>
+            <div
+              className={styles.imageCtn}
+              // onMouseEnter={() => setProfileHover(true)}
+              // onMouseLeave={() => setProfileHover(false)}
+            >
               <Upload showUploadList={false} onChange={uploadFile}>
-                <img
-                  src={
-                    user.profilePic ? cloudinaryUrl(user.profilePic) : profile
-                  }
-                  alt=''
-                />
+                {user.profilePic ? (
+                  <img
+                    src={
+                      user.profilePic ? cloudinaryUrl(user.profilePic) : profile
+                    }
+                    alt=''
+                  />
+                ) : (
+                  <DefaultLogo alternate id={team.id} name={team.name} />
+                )}
               </Upload>
             </div>
             <p className={styles.email}>
