@@ -1,4 +1,4 @@
-import { Menu, Tooltip, Dropdown, Modal, Upload, Input } from 'antd';
+import { Menu, Tooltip, Dropdown, Modal, Upload, Spin, Input } from 'antd';
 import axios from 'axios';
 import React, { useState, useRef, useEffect, useCallback, createContext, useContext } from 'react';
 
@@ -325,7 +325,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".Navbar-module_ctn__28RyD {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 60px;\n  height: 100vh;\n  background-color: #1b2e43;\n}\n.Navbar-module_iconCtn__2R9HJ {\n  text-align: center;\n  padding: 10px;\n}\n.Navbar-module_icon__1heqF {\n  height: 25px;\n  width: auto;\n}\n.Navbar-module_logoCtn__2TI6o,\n.Navbar-module_profileCtn__3RCxO {\n  padding: 20px 10px 30px 10px;\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_profileCtn__3RCxO {\n  padding: 10px 10px 20px 10px;\n}\n.Navbar-module_logo__3rvZB {\n  border-radius: 50%;\n  height: 35px;\n  width: 35px;\n  cursor: pointer;\n}\n.Navbar-module_logoLarge__1QVyd {\n  border-radius: 50%;\n  height: 100px;\n  width: 100px;\n  cursor: pointer;\n}\n.Navbar-module_item__92WQ5 {\n  display: flex;\n  justify-content: center;\n  margin: 16px 0;\n  padding: 8px 0;\n}\n.Navbar-module_active__HzQfF {\n  display: flex;\n  justify-content: center;\n  margin: 8px 0;\n  padding: 8px 0;\n  background-color: white;\n}\n\n.Navbar-module_itemCtn__1dQI_ {\n  max-height: calc(100vh - 70px);\n  overflow-y: auto;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* IE 10+ */\n}\n.Navbar-module_itemCtn__1dQI_::-webkit-scrollbar {\n  /* Chrome/Safari/Webkit */\n  width: 0px;\n  background: transparent;\n}\n.Navbar-module_modal__Zs7sh {\n  display: flex;\n  flex-direction: column;\n}\n.Navbar-module_details__o6JoD {\n  display: flex;\n  justify-content: space-around;\n}\n.Navbar-module_imageCtn__zEqBR {\n  display: flex;\n  justify-content: center;\n  position: relative;\n}\n.Navbar-module_modal__Zs7sh img {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n}\n\n.Navbar-module_profileDetails__1sFME {\n}\n.Navbar-module_contactCtn__1vETu {\n  width: 40%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.Navbar-module_email__27xwg {\n  /* text-align: center; */\n  margin-top: 1rem;\n  color: var(--grey-text-light);\n}\n.Navbar-module_hoverEdit__2g6Yu {\n  position: absolute;\n  height: 100px;\n  width: 100px;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  cursor: pointer;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.Navbar-module_uploadButton__28lC- {\n  width: 156px;\n  height: 38px;\n  background-color: #2ecc71;\n  color: #fff;\n  border: none;\n  cursor: pointer;\n  transition: all .1s;\n}\n.Navbar-module_uploadButton__28lC-:hover {\n  transition: all .1s;\n  background-color: #26b963;\n}\n";
+var css_248z = ".Navbar-module_ctn__28RyD {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 60px;\n  height: 100vh;\n  background-color: #1b2e43;\n}\n.Navbar-module_iconCtn__2R9HJ {\n  text-align: center;\n  padding: 10px;\n}\n.Navbar-module_icon__1heqF {\n  height: 25px;\n  width: auto;\n}\n.Navbar-module_logoCtn__2TI6o,\n.Navbar-module_profileCtn__3RCxO {\n  padding: 20px 10px 30px 10px;\n  display: flex;\n  justify-content: center;\n}\n.Navbar-module_profileCtn__3RCxO {\n  padding: 10px 10px 20px 10px;\n}\n.Navbar-module_logo__3rvZB {\n  border-radius: 50%;\n  height: 35px;\n  width: 35px;\n  cursor: pointer;\n}\n.Navbar-module_logoLarge__1QVyd {\n  border-radius: 50%;\n  height: 100px;\n  width: 100px;\n  cursor: pointer;\n}\n.Navbar-module_item__92WQ5 {\n  display: flex;\n  justify-content: center;\n  margin: 16px 0;\n  padding: 8px 0;\n}\n.Navbar-module_active__HzQfF {\n  display: flex;\n  justify-content: center;\n  margin: 8px 0;\n  padding: 8px 0;\n  background-color: white;\n}\n\n.Navbar-module_itemCtn__1dQI_ {\n  max-height: calc(100vh - 70px);\n  overflow-y: auto;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* IE 10+ */\n}\n.Navbar-module_itemCtn__1dQI_::-webkit-scrollbar {\n  /* Chrome/Safari/Webkit */\n  width: 0px;\n  background: transparent;\n}\n.Navbar-module_modal__Zs7sh {\n  display: flex;\n  flex-direction: column;\n}\n.Navbar-module_details__o6JoD {\n  display: flex;\n  justify-content: space-around;\n}\n.Navbar-module_imageCtn__zEqBR {\n  display: flex;\n  justify-content: center;\n  position: relative;\n  margin-left: 2rem;\n  margin-top: 1rem;\n}\n\n.Navbar-module_profileDetails__1sFME {\n}\n.Navbar-module_contactCtn__1vETu {\n  width: 40%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.Navbar-module_email__27xwg {\n  /* text-align: center; */\n  margin-top: 1rem;\n  color: var(--grey-text-light);\n}\n.Navbar-module_hoverEdit__2g6Yu {\n  position: absolute;\n  height: 100px;\n  width: 100px;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  cursor: pointer;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.Navbar-module_uploadButton__28lC- {\n  width: 156px;\n  height: 38px;\n  background-color: #2ecc71;\n  color: #fff;\n  border: none;\n  cursor: pointer;\n  transition: all 0.1s;\n}\n.Navbar-module_uploadButton__28lC-:hover {\n  transition: all 0.1s;\n  background-color: #26b963;\n}\n";
 var styles = {"ctn":"Navbar-module_ctn__28RyD","iconCtn":"Navbar-module_iconCtn__2R9HJ","icon":"Navbar-module_icon__1heqF","logoCtn":"Navbar-module_logoCtn__2TI6o","profileCtn":"Navbar-module_profileCtn__3RCxO","logo":"Navbar-module_logo__3rvZB","logoLarge":"Navbar-module_logoLarge__1QVyd","item":"Navbar-module_item__92WQ5","active":"Navbar-module_active__HzQfF","itemCtn":"Navbar-module_itemCtn__1dQI_","modal":"Navbar-module_modal__Zs7sh","details":"Navbar-module_details__o6JoD","imageCtn":"Navbar-module_imageCtn__zEqBR","profileDetails":"Navbar-module_profileDetails__1sFME","contactCtn":"Navbar-module_contactCtn__1vETu","email":"Navbar-module_email__27xwg","hoverEdit":"Navbar-module_hoverEdit__2g6Yu","uploadButton":"Navbar-module_uploadButton__28lC-"};
 styleInject(css_248z);
 
@@ -428,15 +428,18 @@ var Navbar = function (_a) {
     } : _d, _e = _a.router, router = _e === void 0 ? false : _e, list = _a.list, updateName = _a.updateName, updateProfilePic = _a.updateProfilePic;
     var _f = useState(), newImage = _f[0], setNewImage = _f[1];
     var _g = useState(false), profileVisible = _g[0], setProfileVisible = _g[1];
-    var _h = useState(user.name), userName = _h[0], setUserName = _h[1];
-    var _j = useState(false), profileHover = _j[0], setProfileHover = _j[1];
+    var _h = useState(true), imageUploading = _h[0], setImageUploading = _h[1];
+    var _j = useState(user.name), userName = _j[0], setUserName = _j[1];
+    var _k = useState(false), profileHover = _k[0], setProfileHover = _k[1];
     var location = useLocation()[0];
     var active = location.split('/')[1];
     var uploadFile = useCallback(function (info) {
         if (info.file.status === 'uploading') {
+            setImageUploading(true);
             return;
         }
         if (info.file.status === 'done') {
+            setImageUploading(false);
             var tempFormData = new FormData();
             tempFormData.append('upload_preset', 'nkoljiea');
             tempFormData.append('file', info.fileList[0].originFileObj);
@@ -462,8 +465,10 @@ var Navbar = function (_a) {
                         React.createElement("div", { className: styles.imageCtn },
                             React.createElement("div", { onMouseEnter: function () { return setProfileHover(true); }, onMouseLeave: function () { return setProfileHover(false); } },
                                 React.createElement(Upload, { showUploadList: false, onChange: uploadFile },
-                                    profileHover && (React.createElement("div", { className: styles.hoverEdit },
+                                    profileHover && !imageUploading && (React.createElement("div", { className: styles.hoverEdit },
                                         React.createElement("img", { src: img$g, alt: '', style: { width: 35, height: 35 } }))),
+                                    imageUploading && (React.createElement("div", { className: styles.hoverEdit },
+                                        React.createElement(Spin, null))),
                                     React.createElement(DefaultLogo, { alternate: true, id: user.id, name: user.name, large: true, profilePic: newImage ? newImage : user.profilePic })),
                                 React.createElement("p", { style: {
                                         marginTop: 8,

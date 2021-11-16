@@ -1,5 +1,5 @@
 import { IcoCameraWhite } from '@icons'
-import { Dropdown, Input, Modal, Upload } from 'antd'
+import { Dropdown, Input, Modal, Spin, Upload } from 'antd'
 import axios from 'axios'
 import React, { FC, useCallback, useState } from 'react'
 import { useLocation } from 'wouter'
@@ -71,6 +71,7 @@ export const Navbar: React.FC<NavbarProp> = ({
 }) => {
   const [newImage, setNewImage] = useState<string>()
   const [profileVisible, setProfileVisible] = useState(false)
+  const [imageUploading, setImageUploading] = useState(true)
   const [userName, setUserName] = useState(user.name)
   const [profileHover, setProfileHover] = useState(false)
 
@@ -79,9 +80,11 @@ export const Navbar: React.FC<NavbarProp> = ({
 
   const uploadFile = useCallback((info: any) => {
     if (info.file.status === 'uploading') {
+      setImageUploading(true)
       return
     }
     if (info.file.status === 'done') {
+      setImageUploading(false)
       const tempFormData = new FormData()
       tempFormData.append('upload_preset', 'nkoljiea')
       tempFormData.append('file', info.fileList[0].originFileObj)
@@ -132,13 +135,18 @@ export const Navbar: React.FC<NavbarProp> = ({
                   onMouseEnter={() => setProfileHover(true)}
                   onMouseLeave={() => setProfileHover(false)}>
                   <Upload showUploadList={false} onChange={uploadFile}>
-                    {profileHover && (
+                    {profileHover && !imageUploading && (
                       <div className={styles.hoverEdit}>
                         <img
                           src={IcoCameraWhite}
                           alt=''
                           style={{ width: 35, height: 35 }}
                         />
+                      </div>
+                    )}
+                    {imageUploading && (
+                      <div className={styles.hoverEdit}>
+                        <Spin />
                       </div>
                     )}
                     <DefaultLogo

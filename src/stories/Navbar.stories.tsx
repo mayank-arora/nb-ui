@@ -27,6 +27,7 @@ stories.add('Navbar', () => {
         id: '1',
         name: 'Mayank',
         email: 'mayank@noticeboard.com',
+        profilePic: 'knb6btuht7wavp4c6cdp'
       }}
     />
   )
