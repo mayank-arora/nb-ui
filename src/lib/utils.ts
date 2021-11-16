@@ -43,12 +43,13 @@ export const colorPalette = [
 ]
 
 export function getInitials(name: string) {
-  let temp = name.split(' ')
+  let temp: Array<string> = name.split(' ')
+  
   switch (temp.length) {
     case 0:
       return 'NB'
     case 1:
-      return temp[0].charAt(0).toUpperCase()
+      return temp[0].charAt(0).toUpperCase() + temp[0].charAt(1).toUpperCase()
     case 2:
       return temp[0].charAt(0).toUpperCase() + temp[1].charAt(0).toUpperCase()
     default:

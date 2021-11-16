@@ -1,9 +1,8 @@
+import { IcoCameraWhite } from '@icons'
 import { Dropdown, Input, Modal, Upload } from 'antd'
 import axios from 'axios'
 import React, { FC, useCallback, useState } from 'react'
-import { cloudinaryUrl } from 'src/lib/utils'
 import { useLocation } from 'wouter'
-import profile from '../../images/profile-default.jpg'
 import { DefaultLogo } from '../DefaultLogo'
 import { ProfileMenu } from '../ProfileMenu'
 import { ItemContainer } from './ItemContainer'
@@ -53,6 +52,7 @@ export const Navbar: React.FC<NavbarProp> = ({
     id: '',
     name: '',
     email: '',
+    profilePic: '',
   },
   config = {
     showDashboard: true,
@@ -69,6 +69,14 @@ export const Navbar: React.FC<NavbarProp> = ({
   updateName,
   updateProfilePic,
 }) => {
+  const [newImage, setNewImage] = useState<string>()
+  const [profileVisible, setProfileVisible] = useState(false)
+  const [userName, setUserName] = useState(user.name)
+  const [profileHover, setProfileHover] = useState(false)
+
+  const [location] = useLocation()
+  let active = location.split('/')[1]
+
   const uploadFile = useCallback((info: any) => {
     if (info.file.status === 'uploading') {
       return
@@ -77,32 +85,19 @@ export const Navbar: React.FC<NavbarProp> = ({
       const tempFormData = new FormData()
       tempFormData.append('upload_preset', 'nkoljiea')
       tempFormData.append('file', info.fileList[0].originFileObj)
-      axios
-        .post('/api/cloudinary/upload', tempFormData)
-        .then((response) => updateProfilePic(response.data))
+      axios.post('/api/cloudinary/upload', tempFormData).then((response) => {
+        setNewImage(response.data.public_id)
+        updateProfilePic(response.data)
+      })
     }
-
   }, [])
-  const [location] = useLocation()
-  let active = location.split('/')[1]
-  const [profileVisible, setProfileVisible] = useState(false)
-  const [userName, setUserName] = useState(user.name)
-  // const [profileHover, setProfileHover] = useState(false)
 
   return (
     <div className={styles.ctn}>
       <div>
         <div className={styles.logoCtn}>
           <a href='/team'>
-            {team.logo ? (
-              <img
-                className={styles.logo}
-                src={cloudinaryUrl(team.logo)}
-                alt=''
-              />
-            ) : (
-              <DefaultLogo id={team.id} name={team.name} />
-            )}
+            <DefaultLogo id={team.id} name={team.name} profilePic={team.logo} />
           </a>
         </div>
         {router && list ? (
@@ -115,48 +110,82 @@ export const Navbar: React.FC<NavbarProp> = ({
         <Dropdown
           destroyPopupOnHide
           overlay={<ProfileMenu {...{ setProfileVisible }} />}>
-          <img
-            className={styles.logo}
-            src={user.profilePic ? cloudinaryUrl(user.profilePic) : profile}
-            alt=''
-          />
+          <div>
+            <DefaultLogo
+              id={user.id}
+              name={user.name}
+              profilePic={newImage ? newImage : user.profilePic}
+            />
+          </div>
         </Dropdown>
         <Modal
+          width={720}
           title='Update Profile'
           visible={profileVisible}
-          onOk={() => {
-            setProfileVisible(false)
-            updateName(userName)
-          }}
+          footer={null}
           onCancel={() => setProfileVisible(false)}
           okText='Update Profile'>
           <div className={styles.modal}>
-            <div
-              className={styles.imageCtn}
-              // onMouseEnter={() => setProfileHover(true)}
-              // onMouseLeave={() => setProfileHover(false)}
-            >
-              <Upload showUploadList={false} onChange={uploadFile}>
-                {user.profilePic ? (
-                  <img
-                    src={
-                      user.profilePic ? cloudinaryUrl(user.profilePic) : profile
-                    }
-                    alt=''
+            <div className={styles.details}>
+              <div className={styles.imageCtn}>
+                <div
+                  onMouseEnter={() => setProfileHover(true)}
+                  onMouseLeave={() => setProfileHover(false)}>
+                  <Upload showUploadList={false} onChange={uploadFile}>
+                    {profileHover && (
+                      <div className={styles.hoverEdit}>
+                        <img
+                          src={IcoCameraWhite}
+                          alt=''
+                          style={{ width: 35, height: 35 }}
+                        />
+                      </div>
+                    )}
+                    <DefaultLogo
+                      alternate
+                      id={user.id}
+                      name={user.name}
+                      large
+                      profilePic={newImage ? newImage : user.profilePic}
+                    />
+                  </Upload>
+                  <p
+                    style={{
+                      marginTop: 8,
+                      fontSize: 12,
+                      opacity: 0.8,
+                      textAlign: 'center',
+                    }}>
+                    Add/Edit picture
+                  </p>
+                </div>
+              </div>
+              <div className={styles.contactCtn}>
+                <div className={styles.profileDetails}>
+                  <Input
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
-                ) : (
-                  <DefaultLogo alternate id={team.id} name={team.name} />
-                )}
-              </Upload>
+                </div>
+                <p className={styles.email}>
+                  <b>Contact:</b> {user.email}
+                </p>
+              </div>
             </div>
-            <p className={styles.email}>
-              <b>Contact:</b> {user.email}
-            </p>
-            <div className={styles.profileDetails}>
-              <Input
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '2rem',
+              }}>
+              <button
+                onClick={() => {
+                  setProfileVisible(false)
+                  updateName(userName)
+                }}
+                className={styles.uploadButton}>
+                Update Profile
+              </button>
             </div>
           </div>
         </Modal>

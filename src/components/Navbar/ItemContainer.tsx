@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  IcoAcademyDark,
-  IcoAcademyWhite,
+  // IcoAcademyDark,
+  // IcoAcademyWhite,
   IcoAdminstrationDark,
   IcoAdminstrationWhite,
   IcoBoardDark,
@@ -133,7 +133,7 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({
         </NavItem>
       )}
 
-      {config.showAcademy && (
+      {/* {config.showAcademy && (
         <NavItem
           active={active === 'academy'}
           href='/academy'
@@ -144,7 +144,7 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({
             <img src={IcoAcademyWhite} />
           )}
         </NavItem>
-      )}
+      )} */}
 
       {config.showSchedule &&
         (active === 'boards' ||
