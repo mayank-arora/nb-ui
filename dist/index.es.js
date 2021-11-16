@@ -426,11 +426,11 @@ var Navbar = function (_a) {
         showChecklist: true,
         showSchedule: true,
     } : _d, _e = _a.router, router = _e === void 0 ? false : _e, list = _a.list, updateName = _a.updateName, updateProfilePic = _a.updateProfilePic;
-    var _f = useState(), newImage = _f[0], setNewImage = _f[1];
-    var _g = useState(false), profileVisible = _g[0], setProfileVisible = _g[1];
-    var _h = useState(true), imageUploading = _h[0], setImageUploading = _h[1];
-    var _j = useState(user.name), userName = _j[0], setUserName = _j[1];
-    var _k = useState(false), profileHover = _k[0], setProfileHover = _k[1];
+    var _f = useState(false), profileVisible = _f[0], setProfileVisible = _f[1];
+    var _g = useState(false), imageUploading = _g[0], setImageUploading = _g[1];
+    var _h = useState(user.name), userName = _h[0], setUserName = _h[1];
+    var _j = useState(false), profileHover = _j[0], setProfileHover = _j[1];
+    var _k = useState(), newImage = _k[0], setNewImage = _k[1];
     var location = useLocation()[0];
     var active = location.split('/')[1];
     var uploadFile = useCallback(function (info) {
@@ -439,13 +439,13 @@ var Navbar = function (_a) {
             return;
         }
         if (info.file.status === 'done') {
-            setImageUploading(false);
             var tempFormData = new FormData();
             tempFormData.append('upload_preset', 'nkoljiea');
             tempFormData.append('file', info.fileList[0].originFileObj);
             axios.post('/api/cloudinary/upload', tempFormData).then(function (response) {
                 setNewImage(response.data.public_id);
                 updateProfilePic(response.data);
+                setImageUploading(false);
             });
         }
     }, []);
@@ -459,7 +459,7 @@ var Navbar = function (_a) {
             React.createElement(Dropdown, { destroyPopupOnHide: true, overlay: React.createElement(ProfileMenu, __assign({}, { setProfileVisible: setProfileVisible })) },
                 React.createElement("div", null,
                     React.createElement(DefaultLogo, { id: user.id, name: user.name, profilePic: newImage ? newImage : user.profilePic }))),
-            React.createElement(Modal, { width: 720, title: 'Update Profile', visible: profileVisible, footer: null, onCancel: function () { return setProfileVisible(false); }, okText: 'Update Profile' },
+            React.createElement(Modal, { destroyOnClose: true, width: 720, title: 'Update Profile', visible: profileVisible, footer: null, onCancel: function () { return setProfileVisible(false); }, okText: 'Update Profile' },
                 React.createElement("div", { className: styles.modal },
                     React.createElement("div", { className: styles.details },
                         React.createElement("div", { className: styles.imageCtn },

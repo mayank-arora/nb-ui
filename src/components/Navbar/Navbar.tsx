@@ -69,11 +69,11 @@ export const Navbar: React.FC<NavbarProp> = ({
   updateName,
   updateProfilePic,
 }) => {
-  const [newImage, setNewImage] = useState<string>()
   const [profileVisible, setProfileVisible] = useState(false)
-  const [imageUploading, setImageUploading] = useState(true)
+  const [imageUploading, setImageUploading] = useState(false)
   const [userName, setUserName] = useState(user.name)
   const [profileHover, setProfileHover] = useState(false)
+  const [newImage, setNewImage] = useState<string>()
 
   const [location] = useLocation()
   let active = location.split('/')[1]
@@ -84,13 +84,13 @@ export const Navbar: React.FC<NavbarProp> = ({
       return
     }
     if (info.file.status === 'done') {
-      setImageUploading(false)
       const tempFormData = new FormData()
       tempFormData.append('upload_preset', 'nkoljiea')
       tempFormData.append('file', info.fileList[0].originFileObj)
       axios.post('/api/cloudinary/upload', tempFormData).then((response) => {
         setNewImage(response.data.public_id)
         updateProfilePic(response.data)
+        setImageUploading(false)
       })
     }
   }, [])
@@ -122,6 +122,7 @@ export const Navbar: React.FC<NavbarProp> = ({
           </div>
         </Dropdown>
         <Modal
+          destroyOnClose
           width={720}
           title='Update Profile'
           visible={profileVisible}
