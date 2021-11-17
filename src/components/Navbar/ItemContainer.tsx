@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-  // IcoAcademyDark,
-  // IcoAcademyWhite,
   IcoAdminstrationDark,
   IcoAdminstrationWhite,
   IcoBoardDark,
@@ -27,7 +25,6 @@ export interface ItemContainerProps {
     showTask: boolean
     showTeam: boolean
     showAdmin: boolean
-    showAcademy: boolean
     showTraining: boolean
     showChecklist: boolean
     showSchedule: boolean
@@ -132,19 +129,6 @@ export const ItemContainer: React.FC<ItemContainerProps> = ({
           )}
         </NavItem>
       )}
-
-      {/* {config.showAcademy && (
-        <NavItem
-          active={active === 'academy'}
-          href='/academy'
-          title='Learning Academy'>
-          {active === 'academy' ? (
-            <img src={IcoAcademyDark} />
-          ) : (
-            <img src={IcoAcademyWhite} />
-          )}
-        </NavItem>
-      )} */}
 
       {config.showSchedule &&
         (active === 'boards' ||

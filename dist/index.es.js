@@ -442,11 +442,16 @@ var Navbar = function (_a) {
             var tempFormData = new FormData();
             tempFormData.append('upload_preset', 'nkoljiea');
             tempFormData.append('file', info.fileList[0].originFileObj);
-            axios.post('/api/cloudinary/upload', tempFormData).then(function (response) {
+            axios
+                .post('https://api.cloudinary.com/v1_1/noticeboard/upload', tempFormData)
+                .then(function (response) {
                 setNewImage(response.data.public_id);
                 updateProfilePic(response.data);
                 setImageUploading(false);
             });
+        }
+        if (info.file.status === 'error') {
+            setImageUploading(false);
         }
     }, []);
     return (React.createElement("div", { className: styles.ctn },
